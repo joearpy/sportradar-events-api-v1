@@ -18,7 +18,7 @@ class Events {
 
     public function get_events_by_category( $category ) : array
     {
-        $stmt = $this->db->prepare('SELECT * FROM events WHERE _category = ?');
+        $stmt = $this->db->prepare('SELECT name, time FROM events WHERE _category = ?');
         $stmt->execute([$category]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
